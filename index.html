@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en" ng-app="likeSorter">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<!-- Mobile Viewport -->
+    <meta name="viewport" content="width=device-width">
+
+	<title>LikeSorter</title>
+
+	<!-- Stylesheets -->
+	<link href="assets/css/typography.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/css/styles.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+  
+	
+
+	<!-- Angular JS Files -->
+  	
+    <script type="text/javascript" src="assets/js/angular.js"></script>
+  	<script type="text/javascript" src="assets/js/controllers.js"></script>
+ 
+
+</head>
+
+
+<body ng-controller="TopListCtrl">
+
+<header>
+	<div class="container">
+		<h1 class="logo">LikeSorter</h1>
+	</div>
+</header>
+
+
+<div class="container content">
+
+	<!--
+	<ol class="posts">
+		<li ng-repeat="like in likes.collection | orderBy:'-favoritings_count'">
+
+{{sc_user}}'s
+
+getData({{like.user.permalink}}
+
+<a href="{{ like.user.permalink_url }}">
+
+			<a href="{{ like.permalink_url }}">{{ like.title }}</a>
+			<span class="url">{{ like.permalink_url | shortURL }}</span>
+			<small> {{ like.favoritings_count + " favoritings"}} by {{ like.user_id }} {{ post.release_year }} 
+				| {{ like.playback_count + " times played" }} | {{ like.tag_list }}</small>
+		</li>
+	</ol>
+
+	<!--
+
+    <form id="nowsorting" ng-submit="getData(sc_user)"><input type="text" class="form-control .input-lg" ng-model="sc_user" placeholder="Soundcloud username"><button class="btn btn-default btn-primary"><span class="glyphicon glyphicon-heart"></span>Get Likes</button></form> 
+
+
+
+
+
+
+	<form class="form-search form-inline">
+        <input type="text" ng-model="query" class="form-control search-query" placeholder="Filter"/>
+    </form>
+
+
+
+  <table class="table table-hover table-striped">
+      <thead>
+      <tr>
+        <th><a href="" ng-click="sortField ='title'; reverse = !reverse">Song</a></th>
+        <th><a href="" ng-click="sortField ='user.username'; reverse = !reverse">Artist</a></th>
+        <th><a href="" ng-click="sortField = 'favoritings_count'; reverse = !reverse">Likes</a></th>
+        <th><a href="" ng-click="sortField = 'playback_count'; reverse = !reverse">Plays</a></th>
+        <th><a href="" ng-click="sortField = 'tag_list'; reverse = !reverse">Tags</a></th>
+      </tr>
+      </thead>
+      <tr ng-repeat="like in likes.collection | filter:query | orderBy:sortField:reverse">
+        <td width="30%"><a href="{{ like.permalink_url }}" target="_blank">{{like.title}}</td>
+        <td><a href="#" ng-click="getData(like.user.permalink)">{{like.user.username}}</a></td>
+        <td>{{like.favoritings_count}}</td>
+        <td>{{like.playback_count}}</td>
+        <td>{{like.tag_list}}</td>
+      </tr>
+    </table>
+
+   -->
+
+
+
+<div id="topelems">
+        
+
+  <div class="col-xs-6">
+        <div class="left-inner-addon">
+            <div class="form_input">
+                <form ng-submit="getData(sc_user)">
+                    <input class="form-control" placeholder=
+                    "Soundcloud username" type="text" ng-model="sc_user">
+                
+            </div>
+        </div>
+
+        <div class="button">
+            <button class="btn btn-default btn-primary" type="submit">
+            <span class="glyphicon glyphicon-heart"></span> Get Likes</button>
+
+            
+        </div>
+        </form>
+    </div>
+    
+	<div class="col-xs-6" >
+	    <div class="right-inner-addon input-append">
+	        <form class="form-search form-inline">
+	        <i class="icon-search"></i> 
+	        <input type="search"
+	               class="form-control" 
+	               placeholder="Filter"
+	               ng-model="query" />
+
+	        </form>
+	    </div>
+	</div>
+
+
+</div>
+  <table class="table table-hover table-striped">
+      <thead>
+      <tr>
+        <th><a href="" ng-click="sortField ='title'; reverse = !reverse">Song</a></th>
+        <th><a href="" ng-click="sortField ='user.username'; reverse = !reverse">Artist</a></th>
+        <th><a href="" ng-click="sortField = 'favoritings_count'; reverse = !reverse">Likes <span ng-show="!reverse">&#9650;</span><span ng-show="reverse">&#9660;</span></a></th>
+        <th><a href="" ng-click="sortField = 'playback_count'; reverse = !reverse">Plays</a></th>
+        <th><a href="" ng-click="sortField = 'tag_list'; reverse = !reverse">Tags</a></th>
+      </tr>
+      </thead>
+      <tr ng-repeat="like in likes.collection | filter:query | orderBy:sortField:reverse">
+        <td width="30%"><a href="{{ like.permalink_url }}" target="_blank">{{like.title}}</td>
+        <td><a href="#" ng-click="getData(like.user.permalink)">{{like.user.username}}</a></td>
+        <td width="10%">{{like.favoritings_count}}</td>
+        <td>{{like.playback_count}}</td>
+        <td>{{like.tag_list}}</td>
+      </tr>
+    </table>
+
+</div>
+
+</body>
+</html>
