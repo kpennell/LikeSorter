@@ -37,14 +37,33 @@ aside {
     text-decoration: none; }
 
 .logo {
-  background: url(../img/HN/logo.png) no-repeat;
-  margin: 4px 0;
-  padding: 0;
-  text-indent: 37px;
-  height: 35px;
+
+  margin: 0 0;
   display: block;
-  padding-top: 4px;
+  padding-top: 7px;
   float:left;
+}
+
+.logo_h1 {
+    margin: 0px;
+    padding: 7px 3px 0px;
+    height: 35px;
+    display: block;
+    float: left;
+    color: white;
+}
+
+.about_h1 {
+    margin: 0px;
+    padding: 8px 3px 0px;
+    height: 35px;
+    display: block;
+    float: right;
+    color: white;
+    font-size: 15px;
+    opacity: .5;
+    cursor: pointer;
+}
 }
 
 .upvote {
@@ -182,4 +201,28 @@ h1, .h1 {
     padding-right: 0px;
     padding-left: 0px;
 }
+
+.aboutpage {
+    margin: 0px 0.0em 0.5em;
+padding: 0px;
+font-size: 15px;
+}
+
+.aboutheader {
+  font-size: 19px;
+      margin-top: 2px;
+    margin-bottom: 2px;
+    color:white;
+}
+
+.modal-header {
+ background-color:#FF6633;
+ padding: 10px;
+}
+
+.modal-body {
+    position: relative;
+    padding: 10px;
+  }
+
 
