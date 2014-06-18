@@ -12,7 +12,7 @@ function TopListCtrl($scope, $http, $modal) {
                     $scope.likes = tracks;
                     $scope.reverse = true;
                     $scope.sortField = 'favoritings_count';
-                    // $scope.sc_user = sc_user;
+                    $scope.sc_user = sc_user;
                 } else {
                     alert("That user has 0 Soundcloud likes or does not exist. Double check the username.")
                 }
