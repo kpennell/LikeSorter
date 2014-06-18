@@ -15,8 +15,15 @@
 	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 	<link href="assets/css/styles.css" rel="stylesheet">
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
   
-	
+	<script src="http://connect.soundcloud.com/sdk.js"></script>
+<script>
+  SC.initialize({
+    client_id: "0553ef1b721e4783feda4f4fe6611d04",
+    redirect_uri: "http://likesorter.com/callback.html",
+  });
+</script>
 
 	<!-- Angular JS Files -->
   	
@@ -39,6 +46,8 @@
             <p class="aboutpage">Happy Listening,<br><a href=http://about.me/kpennell>Kyle</a></p>
         </div>
     </script>
+
+
  
 
 </head>
@@ -108,7 +117,7 @@
         <th><a href="" ng-click="sortField = 'tag_list'; reverse = !reverse">Tags</a></th>
       </tr>
       </thead>
-      <tr ng-repeat="like in likes.collection | filter:query | orderBy:sortField:reverse">
+      <tr ng-repeat="like in likes | filter:query | orderBy:sortField:reverse">
         <td width="30%"><a href="{{ like.permalink_url }}" target="_blank">{{like.title}}</td>
         <td><a href="#" ng-click="getData(like.user.permalink)">{{like.user.username}}</a></td>
         <td width="10%">{{like.favoritings_count}}</td>
