@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en" ng-app="LikeSorter">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<!-- Mobile Viewport -->
+    <meta name="viewport" content="width=device-width">
+
+	<title>LikeSorter</title>
+
+	<!-- Stylesheets -->
+	<link href="assets/css/typography.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/css/styles.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+  
+	<script src="http://connect.soundcloud.com/sdk.js"></script>
+<script>
+  SC.initialize({
+    client_id: "0553ef1b721e4783feda4f4fe6611d04",
+    redirect_uri: "http://likesorter.com/callback.html",
+  });
+</script>
+
+	<!-- Angular JS Files -->
+  	<script type="text/javascript" src="assets/js/angular.js"></script>
+<script type="text/javascript" src="assets/js/controllers.js"></script>
+<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+<script type="text/ng-template" id="myModalContent.html">
+    < div class = "modal-header" > < h2 class = "aboutheader" > About LikeSorter < /h2>
+        </div > < div class = "modal-body" > < p class = "aboutpage" > There & #39;s so much good music on Soundcloud but sometimes it can be hard to find songs you like amidst the thousands on there.  I thought that perhaps by making it easier to sort through my favorite artist&# 39;
+    s likes I might be able to find more songs I like. < /p>
+            <br>
+            <p class="aboutpage">I&#39;m also learning web development (Angular in particular) and this was a fun learning project.</p > < br > < p class = "aboutpage" > Hope you enjoy it too.Here & #39;s the <a href= https: //github.com/kpennell/LikeSorter>code on Github</a> if you're interested in seeing it.</p>
+    <
+    br > < p class = "aboutpage" > Happy Listening,
+    < br > < a href = http: //about.me/kpennell>Kyle</a></p>
+    <
+        /div>
+</script>
+</head>
+<body ng-controller="TopListCtrl">
+    <header>
+        <div class="container"> <a href="index.html"><img class="logo" src="assets/img/HN/logo.png">
+    <h1 class="logo_h1" href="index.html">LikeSorter</h1></a>
+
+             <h4 class="about_h1" ng-click="openpopup()">About</h1>
+        
+
+</header>
+
+
+<div class="container content">
+
+  
+<div id="topelems">
+        
+
+  <div class="col-xs-6">
+        <div class="left-inner-addon">
+            <div class="form_input">
+                <form ng-submit="getData(sc_user)">
+                    <input class="form-control" placeholder=
+                    "Soundcloud username" type="text" ng-model="sc_user">
+                
+            </div>
+        </div>
+
+        <div class="button">
+            <button class="btn btn-default btn-primary" type="submit">
+            <span class="glyphicon glyphicon-heart"></span> Get Likes</button>
+
+            
+        </div>
+        </form>
+    </div>
+    
+  <div class="col-xs-6" >
+      <div class="right-inner-addon input-append">
+          <form class="form-search form-inline">
+          <i class="icon-search"></i> 
+          <input type="search"
+                 class="form-control" 
+                 placeholder="Filter"
+                 ng-model="query" />
+
+          </form>
+      </div>
+  </div>
+
+
+</div>
+  <table class="table table-hover table-striped">
+      <thead>
+      <tr>
+        <th><a href="" ng-click="sortField ='title'; reverse = !reverse">Song</a></th>
+        <th><a href="" ng-click="sortField ='user.username'; reverse = !reverse">Artist</a></th>
+        <th><a href="" ng-click="sortField = 'favoritings_count'; reverse = !reverse">Likes <span ng-show="!reverse">&#9650;</span><span ng-show="reverse">&#9660;</span></a></th>
+        <th><a href="" ng-click="sortField = 'playback_count'; reverse = !reverse">Plays</a></th>
+        <th><a href="" ng-click="sortField = 'tag_list'; reverse = !reverse">Tags</a></th>
+      </tr>
+      </thead>
+      <tr ng-repeat="like in likes | filter:query | orderBy:sortField:reverse">
+        <td width="30%"><a href="{{ like.permalink_url }}" target="_blank">{{like.title}}</td>
+        <td><a href="#" ng-click="getData(like.user.permalink)">{{like.user.username}}</a></td>
+        <td width="10%">{{like.favoritings_count}}</td>
+        <td>{{like.playback_count}}</td>
+        <td>{{like.tag_list}}</td>
+      </tr>
+    </table>
+
+</div>
+
+</body>
+</html>
