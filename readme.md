@@ -1,7 +1,7 @@
 LikeSorter
 =========
 
-Working here: http://immense-earth-8429.herokuapp.com/
+Working here: http://likesorter.herokuapp.com/#
 
 I love discovering and listening to music on Soundcloud but their interface can be a bit slow.
 
