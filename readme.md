@@ -3,7 +3,7 @@ LikeSorter
 
 Working here: http://immense-earth-8429.herokuapp.com/
 
-I love discovering and listening to music on Soundcloud but there interface can be a bit slow.
+I love discovering and listening to music on Soundcloud but their interface can be a bit slow.
 
 LikeSorter lets me explore/find my Soundcloud likes more easily and discover new music by seeing what my favorite artists like on Soundcloud.
 
